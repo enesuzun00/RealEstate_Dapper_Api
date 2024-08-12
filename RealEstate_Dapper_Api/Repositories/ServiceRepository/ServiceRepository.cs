@@ -51,7 +51,7 @@ namespace RealEstate_Dapper_Api.Repositories.ServiceRepository
         {
             string query = "Select*From Service where ServiceID=@serviceID";
             var parameters = new DynamicParameters();
-            parameters.Add("serviceID", id);
+            parameters.Add("@serviceID", id);
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<GetByIDServiceDto>(query, parameters);
