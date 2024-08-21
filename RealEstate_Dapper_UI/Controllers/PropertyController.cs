@@ -50,7 +50,7 @@ namespace RealEstate_Dapper_UI.Controllers
         [HttpGet]
         public async Task<IActionResult> PropertySingle(int id)
         {
-            id = 1;
+            ViewBag.i = id;
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:44344/api/Products/GetProductByProductId?id=" + id);
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -76,17 +76,17 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.garageCount = values2.garageSize;
             ViewBag.buildYear = values2.buildYear;
             ViewBag.date = values.AdvertisementDate;
-            ViewBag.location= values2.location;
-            ViewBag.videoUrl= values2.videoUrl;
+            ViewBag.location = values2.location;
+            ViewBag.videoUrl = values2.videoUrl;
 
 
-            DateTime date1= DateTime.Now;
-            DateTime date2= values.AdvertisementDate;
+            DateTime date1 = DateTime.Now;
+            DateTime date2 = values.AdvertisementDate;
 
             TimeSpan timeSpan = date1 - date2;
-            int month=timeSpan.Days;
+            int month = timeSpan.Days;
 
-            ViewBag.datediff = month/30;
+            ViewBag.datediff = month / 30;
 
 
             return View();

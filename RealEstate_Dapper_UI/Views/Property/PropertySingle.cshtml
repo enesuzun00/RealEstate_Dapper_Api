@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 @{
     ViewData["Title"] = "PropertySingle";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
@@ -51,8 +51,8 @@
             <div class="col-lg-8 w3l-news">
                 <div class="blog-single-post">
 
-                    @await Component.InvokeAsync("_PropertySliderComponentPartial")
-                    
+                    @await Component.InvokeAsync("_PropertySliderComponentPartial",new{id=ViewBag.i})
+
 
 
                     <div class="single-post-content">
@@ -60,7 +60,7 @@
                         <p class="mb-4">
                             @ViewBag.description
                         </p>
-                        
+
                         <div class="single-bg-white">
                             <h3 class="post-content-title mb-4">İlan Detayları</h3>
                             <ul class="details-list">
@@ -79,7 +79,7 @@
                             </ul>
                         </div>
 
-                        @await Component.InvokeAsync("_PropertyAmenityStatusTrueByProductIdComponentPartial")                 
+                        @await Component.InvokeAsync("_PropertyAmenityStatusTrueByProductIdComponentPartial")
                     </div>
 
                     <div class="single-bg-white">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="single-bg-white mb-0">
                         <h3 class="post-content-title mb-4">Ev Tanıtım Videosu</h3>
@@ -101,8 +101,7 @@
                 </div>
             </div>
             @await Component.InvokeAsync("_PropertyAppUserComponentPartial")
-            
+
         </div>
     </div>
 </section>
-
